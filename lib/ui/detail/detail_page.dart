@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_book_search_app/data/model/book.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class DetailPage extends StatelessWidget {
+  DetailPage(this.book);
+  Book book;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('해리포터와 마법사의 돌'),
+        title: Text(book.title),
       ),
       body: InAppWebView(
         initialUrlRequest: URLRequest(
-          url: WebUri('https://www.naver.com'),
+          url: WebUri(book.link),
         ),
         initialSettings: InAppWebViewSettings(
           userAgent:
